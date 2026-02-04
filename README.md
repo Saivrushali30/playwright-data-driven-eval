@@ -53,7 +53,7 @@ playwright.config.ts    -> Multi-project configuration
     - No test duplication
     - CI-ready
 
-## CI/CD
+## CI/CD Process
 
     GitHub Actions runs tests on feature brnaches before merging to main
 
