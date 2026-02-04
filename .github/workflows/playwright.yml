@@ -26,7 +26,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Run tests
-        run: npx playwright test --project=chromium
+        run: npx playwright test 
         env:
           BASE_URL: ${{ vars.BASE_URL }}
           USER_EMAIL: ${{ vars.USER_EMAIL }}

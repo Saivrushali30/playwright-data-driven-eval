@@ -44,28 +44,40 @@ export default defineConfig({
     // Consistent experience across machines/CI
       actionTimeout: 20_000,
       navigationTimeout: 30_000,
+
+     
+     /* headless: false,
+      launchOptions: {
+        slowMo: 500
+          }  */
+      
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'setup',
-      testMatch: /.*\.setup\.ts/
+      testDir: "./tests/setup",
+      testMatch: /.*\.setup\.ts/,
+      use: { ...devices["Desktop Chrome"] }
     },
     {
       name: 'chromium',
+      testDir: "./tests/e2e",
       dependencies: ['setup'],
       use: { ...devices['Desktop Chrome'], storageState: authFile },
     },
 
     {
       name: 'firefox',
+      testDir: "./tests/e2e",
        dependencies: ['setup'],
       use: { ...devices['Desktop Firefox'], storageState: authFile },
     },
 
     {
       name: 'webkit',
+      testDir: "./tests/e2e",
       dependencies: ['setup'],
       use: { ...devices['Desktop Safari'], storageState: authFile },
     },
